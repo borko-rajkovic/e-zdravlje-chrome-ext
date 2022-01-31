@@ -1,0 +1,13 @@
+.ezdravlje-chrome-ext__brand-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ezdravlje-chrome-ext__ime_korisnika {
+  width: 70%;
+}
+
+.ezdravlje-chrome-ext__calendar_div {
+  height: 100% !important;
+  overflow: auto !important;
+}

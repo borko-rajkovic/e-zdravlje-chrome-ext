@@ -1,0 +1,35 @@
+{
+  "name": "e-zdravlje chrome-ext",
+  "description": "Chrome extension for ezdravlje.me login for citizens",
+  "version": "0.1",
+  "permissions": ["activeTab", "storage"],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.ezdravlje.me/ezdravlje/authorization-server/login*"
+      ],
+      "js": [
+        "js/view/templates.js",
+        "js/view/selectors.js",
+        "js/controller/storage.js",
+        "js/controller/login.js"
+      ],
+      "run_at": "document_idle",
+      "css": ["css/styles.css", "css/fa6.css"]
+    },
+    {
+      "matches": ["https://www.ezdravlje.me/ezdravlje/client/index*"],
+      "js": [
+        "js/view/selectors.js",
+        "js/controller/storage.js",
+        "js/controller/client.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "manifest_version": 3
+}
