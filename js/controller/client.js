@@ -22,13 +22,20 @@ const setCalendarScroll = () => {
 setCalendarScroll();
 
 if (newLogin.userName) {
-  const name = clientPage.nameSpan().textContent;
+  const userNameWaitingInterval = setInterval(() => {
+    const name = clientPage.nameSpan().textContent;
 
-  logins[newLogin.userName] = {
-    name,
-    PIN: newLogin.PIN,
-  };
+    if (!name) {
+      return;
+    }
 
-  storeLogins(logins);
-  removeNewLogin();
+    logins[newLogin.userName] = {
+      name,
+      PIN: newLogin.PIN,
+    };
+
+    storeLogins(logins);
+    removeNewLogin();
+    clearInterval(userNameWaitingInterval);
+  }, 100);
 }
